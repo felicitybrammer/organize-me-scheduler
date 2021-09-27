@@ -11,7 +11,7 @@ body {
     color: #000000;
     border-left: 1px solid black;
     padding: 10px;
-    
+    border-bottom: 1px solid black;
   }
   
   .jumbotron {
@@ -28,7 +28,8 @@ body {
   
   .time-block{
     text-align: center;
-    border-radius: 15px;
+    //border-radius: 15px;
+    border-top: 1px dashed #000000;
   }
   
   .row {
@@ -41,9 +42,6 @@ body {
   .hour {
     background-color: #ffffff;
     color: #000000;
-    border-top: 1px dashed #000000;
-    
-    
   }
   
   .past {

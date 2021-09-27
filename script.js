@@ -1,25 +1,37 @@
 // show current day in header
 var currentDay = $('#currentDay').html(moment().format('MMMM Do YYYY HH:mm'));
+console.log(currentDay);
 var currentHour = moment().hour();
+console.log(currentHour);
+
 
  // Declares a variable that holds the parsed to-do items retrieved from 'localStorage'
 // If there is nothing in 'localStorage', sets the 'description' to an empty array
-var description = JSON.parse(localStorage.getItem(".description")) || [];
+//on reload get any saved tasks from local storage and display them
+var description = JSON.parse(localStorage.getItem("description")) || [];
 
-var saveDescription = function(currentHour) {
-    localStorage.setItem("description",JSON.stringify(description[currentHour - 9]));
+//save tasks to local storage
+var saveDescription = function() {
+    localStorage.setItem("description",JSON.stringify(description));
 };
 
-var createDescription = function(_currentHour) {
+var createDescription = function() {
     //get the current element
-    $('.hour')
+    
     //$('.description').text
-    //add 
+    //add to decription array
 };
 
 //on click, save a task
-$('.saveBtn').click(function(description) {
-    saveDescription(description.text);
+$('.saveBtn').click(function() {
+    //get form value
+    var taskText = $('#taskDescription').val();
+    var taskTime = $('#data-time').val();
+    if (taskText) {
+        createTask(taskText, taskTime);
+        
+    }
+    saveDescription();
 });
 
 //on click into text area, add text
@@ -45,17 +57,20 @@ $('.description').on('click', 'textarea', function() {
 var checkTime = function() {
    //var timeList = [];
    var time = $('#data-time');
+   console.log(time);
     // get .hour text and convert to moment time
    //add custom id label to each hour block data-(i+9)
   
     //if .hour text is before current hour
     if (moment(time).isBefore(currentHour, 'hour')) {
         //add class .past to relevant text area
-        $('<textarea>').addClass('.past');
-    } else if (moment(time).isSame(currentHour, 'hour')) {
-        $('<textarea>').addClass('.present');
-    } else if (moment(time).isAfter(currentHour, 'hour')) {
-        $('<textarea>').addClass('.future');
+        $('textarea').addClass('past');
+    }
+     if (moment(time).isSame(currentHour, 'hour')) {
+        $('textarea').addClass('present');
+    } 
+    if (moment(time).isAfter(currentHour, 'hour')) {
+        $('textarea').addClass('future');
     }
     
 }
