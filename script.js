@@ -5,17 +5,24 @@ var currentHour = moment().hour();
 console.log(currentHour);
 
 
+
+for (let i = 9; i <= 17; i++) {
+  
+    console.log(localStorage.getItem(i));
+    $('#'+i).text(localStorage.getItem(i));
+}
+
 var checkTime = function() {
    
-    //get row and for each row compare the time and change the color
     var rowcounter = document.getElementsByClassName("row");
     console.log(rowcounter);
-    
+    //get row and for each row compare the time and change the color
     for (let row in rowcounter) {
         console.log(row);
         rowTime = parseInt(row) + 9;
         console.log(rowTime);
 
+            // need to get a specific text area, currently changes them all
         if (currentHour === rowTime) {
             console.log('present');
             $('textarea').addClass('present');
@@ -26,19 +33,32 @@ var checkTime = function() {
             console.log('past');
             $('textarea').addClass('past');
         }
-
     }
-    
 }
 
 var loadDay = function() {
+    //initial time check
     checkTime();
+    
 }
 
 //subsequent time checks
 setInterval (function() {
     checkTime();
 }, 3000000);
+
+
+
+$('.saveBtn').click(function(event) {
+    console.log('button clicked');
+    console.log(event.target);
+    
+    var textArea = $(event.target).prev();
+    var key = textArea.data().time
+    console.log(textArea.val(), textArea.data().time);
+    //capture the text in that textarea and save to local storage
+   localStorage.setItem(key, textArea.val());
+});
 
 loadDay();
 
@@ -76,32 +96,3 @@ loadDay();
 //     //add to decription array
 // };
 
-// //on click, save a task
-// $('.saveBtn').click(function() {
-//     //get form value
-//     var taskText = $('#taskDescription').val();
-//     var taskTime = $('#data-time').val();
-//     if (taskText) {
-//         createTask(taskText, taskTime);
-        
-//     }
-//     saveDescription();
-// });
-
-// //on click into text area, add text
-// $('.description').on('click', 'textarea', function() {
-//     createDescription();
-// });
-// //enter text into textarea
-// //save text to local storage
-// //make persistent
-// //edit text in description
-// // $(".description").on("click", "textarea", function() {
-// //     var text = $(this).text().trim();
-// // });
-
-// // //create a new textarea
-// // var textInput = $("<textarea>").addClass("description").val(text);
-
-// // //replace
-// // $(this).replaceWith(textInput);
