@@ -14,24 +14,24 @@ for (let i = 9; i <= 17; i++) {
 
 var checkTime = function() {
    
-    var rowcounter = document.getElementsByClassName("row");
-    console.log(rowcounter);
+    // var rowcounter = document.getElementsByClassName("row");
+    // console.log(rowcounter);
     //get row and for each row compare the time and change the color
-    for (let row in rowcounter) {
-        console.log(row);
-        rowTime = parseInt(row) + 9;
-        console.log(rowTime);
-
+    for (var i = 9; i < 18;i++) {
+        // console.log(row);
+        // rowTime = parseInt(row) + 9;
+        // console.log(rowTime);
+        
             // need to get a specific text area, currently changes them all
-        if (currentHour === rowTime) {
+        if (currentHour === i) {
             console.log('present');
-            $('textarea').addClass('present');
-        } else if (currentHour < rowTime) {
+            $('#'+i).addClass('present');
+        } else if (currentHour < i) {
             console.log('future');
-            $('textarea').addClass('future');
+            $('#'+i).addClass('future');
         } else {
             console.log('past');
-            $('textarea').addClass('past');
+            $('#'+i).addClass('past');
         }
     }
 }
