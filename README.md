@@ -18,7 +18,5 @@ https://felicitybrammer.github.io/organize-me-scheduler/
 
 ## Screenshot
 
-![Screenshot](images/screenshot.png)
-
 ![screenshot](https://user-images.githubusercontent.com/39717428/136628955-3bbea4f5-3db8-45f0-b7cd-6915c10dab9d.png)
 
