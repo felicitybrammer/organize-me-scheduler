@@ -18,6 +18,6 @@ https://felicitybrammer.github.io/organize-me-scheduler/
 
 ## Screenshot
 
-![Screenshot](./images/screenshot.png)
+![Screenshot](images/screenshot.png)
 
 
